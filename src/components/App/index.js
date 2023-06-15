@@ -14,10 +14,12 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
+
         <Container>
           <Header />
           <Routes />
         </Container>
+
       </ThemeProvider>
     </BrowserRouter>
   );
