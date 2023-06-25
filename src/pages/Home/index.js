@@ -10,6 +10,8 @@ import arrow from '../../assets/images/arrow.svg';
 import edit from '../../assets/images/edit.svg';
 import trash from '../../assets/images/delete.svg';
 
+import ContactsService from '../../services/ContactsService';
+
 export default function Home() {
   const [contacts, setContacts] = useState([]);
   const [orderBy, setOrderBy] = useState('asc');
@@ -25,13 +27,11 @@ export default function Home() {
       try {
         setIsLoading(true);
 
-        const response = await fetch(`http://localhost:4000/contacts?orderBy=${orderBy}`);
+        const contactsList = await ContactsService.listContacts(orderBy);
 
-        await delay(2000);
-
-        const json = await response.json();
-        setContacts(json);
+        setContacts(contactsList);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log('erro', error);
       } finally {
         setIsLoading(false);
