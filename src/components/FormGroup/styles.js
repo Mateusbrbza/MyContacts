@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.form`
   & + & {
@@ -10,5 +10,15 @@ export const Container = styled.form`
     font-size: 12px;
     margin-top: 8px;
     display: block;
+  }
+
+  .form-item {
+    position: relative;
+
+    .loader {
+      position: absolute;
+      top: 18px;
+      right: 16px;
+    }
   }
 `;
