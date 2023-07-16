@@ -21,10 +21,11 @@ class HttpClient {
     });
   }
 
-  put(path, body) {
+  put(path, options) {
     return this.makeRequest(path, {
       method: 'PUT',
-      body,
+      body: options?.body,
+      headers: options?.header,
     });
   }
 
